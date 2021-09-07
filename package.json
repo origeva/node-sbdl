@@ -1,0 +1,33 @@
+{
+	"name": "sbdl",
+	"version": "1.0.0",
+	"description": "",
+	"main": "lib/index.js",
+	"scripts": {
+		"dev": "nodemon",
+		"test": "npm run build && (echo Testing... & mocha -t 3000 -r ts-node/register --recursive \"./test/**/*.ts\")",
+		"build": "npm run clean && (echo Building... & tsc)",
+		"clean": "echo Cleaning... & rd /s /q \"./lib\" & exit",
+		"temp": "ts-node \"./test/cases/test.spec.ts\"",
+		"prepublishOnly": "npm test"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"ffmpeg-static": "^4.4.0",
+		"sponsorblock-api": "^0.2.2",
+		"ytdl-core": "^4.9.1"
+	},
+	"devDependencies": {
+		"@types/chai": "^4.2.14",
+		"@types/ffmpeg-static": "^3.0.0",
+		"@types/mocha": "^8.2.0",
+		"@types/node": "^14.17.12",
+		"chai": "^4.2.0",
+		"mocha": "^8.2.1",
+		"nodemon": "^2.0.6",
+		"ts-node": "^9.1.1",
+		"typescript": "^4.1.3"
+	}
+}
