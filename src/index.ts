@@ -10,10 +10,10 @@ export type MediaType = 'audio' | 'video' | 'audioandvideo'
 export type VideoFormat = 'matroska' | 'mp4'
 export type AudioFormat = 'mp3' | 'opus'
 
-export async function sbdl(url: string, mediaType: 'audioandvideo', outputFormat: VideoFormat): Promise<Readable>
-export async function sbdl(url: string, mediaType: 'video', outputFormat: VideoFormat): Promise<Readable>
-export async function sbdl(url: string, mediaType: 'audio', outputFormat: AudioFormat): Promise<Readable>
-export async function sbdl(url: string, mediaType: MediaType, outputFormat: VideoFormat | AudioFormat = 'matroska'): Promise<Readable> {
+async function sbdl(url: string, mediaType: 'audioandvideo', outputFormat: VideoFormat): Promise<Readable>
+async function sbdl(url: string, mediaType: 'video', outputFormat: VideoFormat): Promise<Readable>
+async function sbdl(url: string, mediaType: 'audio', outputFormat: AudioFormat): Promise<Readable>
+async function sbdl(url: string, mediaType: MediaType, outputFormat: VideoFormat | AudioFormat): Promise<Readable> {
 	let segments: Segment[] = []
 	try {
 		segments = await new SponsorBlock('test', { userAgent: 'sbdl' }).getSegments(ytdl.getVideoID(url), ['intro', 'outro', 'music_offtopic'])
@@ -26,3 +26,5 @@ export async function sbdl(url: string, mediaType: MediaType, outputFormat: Vide
 		return trimSegments(videoDownloader(url), segments, outputFormat as VideoFormat)
 	}
 }
+
+export default sbdl
