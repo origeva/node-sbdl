@@ -41,6 +41,13 @@ jspm_packages/
 # Optional eslint cache
 .eslintcache
 
+# Media files
+*.aac
+*.mp3
+*.mp4
+*.mkv
+*.webm
+
 # dotenv environment variables file
 .env
 .env.test
