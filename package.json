@@ -14,7 +14,7 @@
 	},
 	"scripts": {
 		"dev": "nodemon",
-		"test": "npm run build && (echo Testing... & mocha -t 3000 -r ts-node/register --recursive \"./test/**/*.ts\")",
+		"test": "npm run build && (echo Testing... & mocha -t 15000 -r ts-node/register --recursive \"./test/**/*.ts\")",
 		"build": "npm run clean && (echo Building... & tsc)",
 		"clean": "echo Cleaning... & rd /s /q \"./lib\" & exit",
 		"prepublishOnly": "npm test"
